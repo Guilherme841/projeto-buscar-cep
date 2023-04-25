@@ -1,6 +1,12 @@
 const cep = document.getElementById("cep");
 const botao = document.getElementById("buscar");
-const texto = document.getElementById("texto");
+const cepp = document.getElementById("cepp");
+const bairro = document.getElementById("bairro")
+const rua = document.getElementById("rua");
+const cidade = document.getElementById("cidade");
+const estado = document.getElementById("estado");
+const ddd = document.getElementById("ddd");
+
 
 botao.addEventListener("click", function() {
   const cepBuscado = cep.value;
@@ -11,11 +17,18 @@ botao.addEventListener("click", function() {
     if (data.erro) {
       alert("CEP não encontrado!")
     } else {
-      const cidade = data.localidade;
-      const estado = data.uf;
-      const bairro = data.bairro;
+      const localidade = data.localidade;
+      const uf = data.uf;
+      const bairroo = data.bairro;
+      const logradouro = data.logradouro;
+      const dddd = data.ddd;
 
-      texto.innerHTML = `${cepBuscado}, ${cidade}, ${estado}, ${bairro}`
+      cepp.innerHTML = `Cep pesquisado: ${cepBuscado}.`
+      rua.innerHTML = `Rua: ${logradouro}.`
+      cidade.innerHTML = `Cidade: ${localidade}.`
+      estado.innerHTML = `Estado: ${uf}.`
+      bairro.innerHTML = `Bairro: ${bairroo}.`
+      ddd.innerHTML = `DDD: ${dddd}.`
     }
   })
 })
